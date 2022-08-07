@@ -4,7 +4,7 @@
 	<!-- Completly different configuration between windows/linux -->
 
 	<SourceType platform="windows">URL</SourceType>
-	<SourceURL platform="windows">https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.6.2112/dxc_2021_12_08.zip</SourceURL>
+	<SourceURL platform="windows">https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.7.2207/dxc_2022_07_18.zip</SourceURL>
 	<ConfigCommand platform="windows">echo Nop</ConfigCommand>
 	<BuildCommand platform="windows">echo Nop</BuildCommand>
 

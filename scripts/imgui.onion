@@ -34,6 +34,7 @@
 		<Location>Source</Location>
 		<Destination>include</Destination>
 		<File>imgui.h</File>
+		<File>imconfig.h</File>		
 	</Artifact>
 
 </Library>

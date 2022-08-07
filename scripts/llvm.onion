@@ -4,8 +4,8 @@
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/llvm/llvm-project.git</SourceURL>
 
-	<ConfigCommand>cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_BUILD_LLVM_DYLIB=false -DLLVM_BUILD_RUNTIMES=false -DLLVM_BUILD_RUNTIME=false -DLLVM_INCLUDE_TESTS=false -DLLVM_INCLUDE_TOOLS=false -DLLVM_INCLUDE_UTILS=false -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=true ${SourcePath}/llvm</ConfigCommand>
-	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+	<ConfigCommand>cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_BUILD_LLVM_C_DYLIB=Off -DLLVM_BUILD_LLVM_DYLIB=Off -DLLVM_BUILD_RUNTIMES=Off -DLLVM_BUILD_RUNTIME=Off -DLLVM_INCLUDE_TESTS=Off -DLLVM_INCLUDE_TOOLS=Off -DLLVM_INCLUDE_UTILS=Off -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=true ${SourcePath}/llvm</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release</BuildCommand>
 
 	<Artifact platform="windows">
 		<Type>Library</Type>
