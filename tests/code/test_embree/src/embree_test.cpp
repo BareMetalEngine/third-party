@@ -6,6 +6,7 @@
 
 #include "build.h"
 
+#define EMBREE_STATIC_LIB
 #include <embree3/rtcore.h>
 
 //--

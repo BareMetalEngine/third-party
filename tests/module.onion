@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <Module guid="268fd737-b496-434e-8219-93fe82d33ae9">	
+	<Data>
+		<MountPath>/test/</MountPath>
+		<DataRoot>data</DataRoot>
+		<Publish>true</Publish>
+	</Data>
 	<TestApplication>
 		<SourceRoot>test_embree</SourceRoot>
 		<LibraryDependency>embree</LibraryDependency>
@@ -32,6 +37,18 @@
 	<TestApplication>
 		<SourceRoot>test_ofbx</SourceRoot>
 		<LibraryDependency>ofbx</LibraryDependency>
+	</TestApplication>
+	<TestApplication>
+		<SourceRoot>test_lua</SourceRoot>
+		<LibraryDependency>lua</LibraryDependency>
+	</TestApplication>
+	<TestApplication>
+		<SourceRoot>test_squish</SourceRoot>
+		<LibraryDependency>squish</LibraryDependency>
+	</TestApplication>
+	<TestApplication>
+		<SourceRoot>test_dxc</SourceRoot>
+		<LibraryDependency>dxc</LibraryDependency>
 	</TestApplication>
 	<TestApplication>
 		<SourceRoot>test_curl</SourceRoot>
