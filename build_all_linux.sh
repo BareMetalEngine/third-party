@@ -95,21 +95,21 @@ if [ ! -f $ONION ]; then
 fi
 
 # compile the libs
-#$ONION library -commit -library=scripts/zlib.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/lz4.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/freetype.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/freeimage.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/squish.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/dxc.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/mbedtls.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/ofbx.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/lua.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/gtest.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/imgui.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/embree.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/physx.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/openal.onion -token=$GITHUB_TOKEN
-$ONION library -commit -library=scripts/llvm.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/curl.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/bullet.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/recast.onion -token=$GITHUB_TOKEN
+$ONION library -commit -library=scripts/zlib.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -commit -library=scripts/lz4.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -commit -library=scripts/freetype.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -commit -library=scripts/freeimage.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -commit -library=scripts/squish.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -commit -library=scripts/dxc.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/mbedtls.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/ofbx.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/lua.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/gtest.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/imgui.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/embree.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/physx.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/openal.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/llvm.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/curl.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/bullet.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -commit -library=scripts/recast.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
