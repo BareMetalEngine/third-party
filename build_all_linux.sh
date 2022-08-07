@@ -95,21 +95,21 @@ if [ ! -f $ONION ]; then
 fi
 
 # compile the libs
-#$ONION library -library=scripts/zlib.onion
-#$ONION library -library=scripts/lz4.onion
-#$ONION library -library=scripts/freetype.onion
-#$ONION library -library=scripts/freeimage.onion
-#$ONION library -library=scripts/squish.onion
-#$ONION library -library=scripts/dxc.onion
-#$ONION library -library=scripts/mbedtls.onion
-#$ONION library -library=scripts/ofbx.onion
-#$ONION library -library=scripts/lua.onion
-#$ONION library -library=scripts/gtest.onion
-#$ONION library -library=scripts/imgui.onion
-#$ONION library -library=scripts/embree.onion
-#$ONION library -library=scripts/physx.onion
-#$ONION library -library=scripts/openal.onion
-#$ONION library -library=scripts/llvm.onion
-#$ONION library -library=scripts/curl.onion
-#$ONION library -library=scripts/bullet.onion
-#$ONION library -library=scripts/recast.onion
+#$ONION library -commit -library=scripts/zlib.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/lz4.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/freetype.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/freeimage.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/squish.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/dxc.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/mbedtls.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/ofbx.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/lua.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/gtest.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/imgui.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/embree.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/physx.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/openal.onion -token=$GITHUB_TOKEN
+$ONION library -commit -library=scripts/llvm.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/curl.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/bullet.onion -token=$GITHUB_TOKEN
+#$ONION library -commit -library=scripts/recast.onion -token=$GITHUB_TOKEN
