@@ -26,6 +26,16 @@
 		<File>library/libmbedcrypto.a</File>
 	</Artifact>
 
+        <Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<!-- Note: the order MATTERS HERE -->
+		<File>library/libmbedx509.a</File>
+		<File>library/libmbedtls.a</File>
+		<File>library/libmbedcrypto.a</File>
+	</Artifact>
+
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Source</Location>

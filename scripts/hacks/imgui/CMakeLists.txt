@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.11)
 
 project(imgui)
 
+set(CMAKE_CXX_STANDARD 17)
 option(IMGUI_LIB    "Use Static Libaray" ON)
 
 set (IMGUI_SRC

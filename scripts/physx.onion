@@ -6,10 +6,11 @@
 
 	<ConfigCommand platform="windows">call ${SourcePath}/physx/generate_projects.bat vc16win64</ConfigCommand>
 	<ConfigCommand platform="linux">${SourcePath}/physx/generate_projects.sh linux</ConfigCommand>
+        <ConfigCommand platform="darwin">${SourcePath}/physx/generate_projects.sh mac64</ConfigCommand>
 
 	<BuildCommand platform="windows">cmake --build ${SourcePath}/physx/compiler/vc16win64 --config Release ${MT}</BuildCommand>
 	<BuildCommand platform="linux">cmake --build ${SourcePath}/physx/compiler/linux-release --config Release ${MT}</BuildCommand>
-	
+	<BuildCommand platform="darwin">cmake --build ${SourcePath}/physx/compiler/mac64 --config Release ${MT}</BuildCommand>
 
 	<Artifact platform="windows">
 		<Type>Library</Type>
@@ -37,6 +38,20 @@
         <File>physx/bin/linux.clang/release/libPhysXCommon_static_64.a</File>
         <File>physx/bin/linux.clang/release/libPhysXVehicle_static_64.a</File>
         <File>physx/bin/linux.clang/release/libPhysXCharacterKinematic_static_64.a</File>
+	</Artifact>
+
+        <Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+        <File>physx/bin/mac64.clang/release/libPhysX_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXPvdSDK_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXFoundation_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXExtensions_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXCooking_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXCommon_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXVehicle_static_64.a</File>
+        <File>physx/bin/mac64.clang/release/libPhysXCharacterKinematic_static_64.a</File>
 	</Artifact>
 
 	<Artifact>

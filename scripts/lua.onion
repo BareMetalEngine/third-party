@@ -21,6 +21,13 @@
 		<File>liblua.a</File>
 	</Artifact>
 
+        <Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>liblua.a</File>
+	</Artifact>
+
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Source</Location>

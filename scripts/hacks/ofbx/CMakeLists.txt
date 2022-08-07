@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.11)
 
 project(OFBX)
 
+set(CMAKE_CXX_STANDARD 17)
 option(OFBX_LIB    "Use Static Libaray" ON)
 
 set (OFBX_SRC    

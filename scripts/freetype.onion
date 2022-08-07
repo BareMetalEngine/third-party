@@ -21,6 +21,13 @@
 		<File>libfreetype.a</File>
 	</Artifact>
 
+        <Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libfreetype.a</File>
+	</Artifact>
+
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Build</Location>

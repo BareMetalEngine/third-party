@@ -4,7 +4,9 @@
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/embree/embree.git</SourceURL>
 
-	<ConfigCommand>cmake -DEMBREE_STATIC_LIB=true -DEMBREE_ISPC_SUPPORT=false -DEMBREE_TUTORIALS=false -DEMBREE_ISA_AVX512=false -DEMBREE_TASKING_SYSTEM=internal ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="windows">cmake -DEMBREE_STATIC_LIB=true -DEMBREE_ISPC_SUPPORT=false -DEMBREE_TUTORIALS=false -DEMBREE_ISA_AVX512=false -DEMBREE_TASKING_SYSTEM=internal ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="linux">cmake -DEMBREE_STATIC_LIB=true -DEMBREE_ISPC_SUPPORT=false -DEMBREE_TUTORIALS=false -DEMBREE_ISA_AVX512=false -DEMBREE_TASKING_SYSTEM=internal ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="darwin">cmake -DEMBREE_STATIC_LIB=false -DEMBREE_ISPC_SUPPORT=false -DEMBREE_TUTORIALS=false -DEMBREE_ISA_AVX512=false -DEMBREE_TASKING_SYSTEM=internal ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Artifact platform="windows">
@@ -35,6 +37,20 @@
 		<File>libsimd.a</File>
 		<File>libsys.a</File>
 		<File>libtasking.a</File>
+	</Artifact>
+
+	<Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libembree3.dylib</File>		
+	</Artifact>
+
+	<Artifact platform="darwin">
+		<Type>Deploy</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libembree3.dylib</File>		
 	</Artifact>
 
 	<Artifact>
