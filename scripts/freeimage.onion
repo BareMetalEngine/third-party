@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="freeimage">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/WinMerge/freeimage.git</SourceURL>
+
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DFREEIMAGE_LIB=true -DSUPPORT_FMT_JPEG=true -DSUPPORT_FMT_OPENEXR=true -DSUPPORT_FMT_WEBP=true -DSUPPORT_FMT_TIFF=true ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/FreeImage.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libFreeImage.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>Source/FreeImage.h</File>
+		<File>Source/config.h</File>
+		<File>Wrapper/FreeImagePlus/FreeImagePlus.h</File>		
+	</Artifact>
+
+</Library>

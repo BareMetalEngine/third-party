@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="embree">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/embree/embree.git</SourceURL>
+
+	<ConfigCommand>cmake -DEMBREE_STATIC_LIB=true -DEMBREE_ISPC_SUPPORT=false -DEMBREE_TUTORIALS=false -DEMBREE_ISA_AVX512=false -DEMBREE_TASKING_SYSTEM=internal ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/embree_avx.lib</File>
+		<File>Release/embree_avx2.lib</File>
+		<File>Release/embree_sse42.lib</File>
+		<File>Release/embree3.lib</File>
+		<File>Release/lexers.lib</File>
+		<File>Release/math.lib</File>
+		<File>Release/simd.lib</File>		
+		<File>Release/sys.lib</File>
+		<File>Release/tasking.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libembree3.a</File>
+		<File>libembree_avx.a</File>
+		<File>libembree_avx2.a</File>
+		<File>libembree_sse42.a</File>
+		<File>liblexers.a</File>
+		<File>libmath.a</File>
+		<File>libsimd.a</File>
+		<File>libsys.a</File>
+		<File>libtasking.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/*.*</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

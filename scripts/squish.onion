@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="squish">
+	
+	<SourceType>URL</SourceType>
+	<SourceURL>https://netix.dl.sourceforge.net/project/libsquish/libsquish-1.15.tgz</SourceURL>
+
+	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/squish.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libsquish.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>squish.h</File>
+	</Artifact>
+
+</Library>

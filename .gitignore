@@ -1,0 +1,3 @@
+# Ignore Onion library build directories
+.temp
+.cache

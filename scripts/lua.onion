@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="lua">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/lua/lua.git</SourceURL>
+
+	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/lua.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>liblua.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include/lua</Destination>
+		<File>lua.h</File>
+		<File>lualib.h</File>
+		<File>luaconf.h</File>
+		<File>lauxlib.h</File>
+	</Artifact>
+
+</Library>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="bullet">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/bulletphysics/bullet3.git</SourceURL>
+
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=OFF ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/Release/Bullet2FileLoader.lib</File>
+		<File>lib/Release/Bullet3Collision.lib</File>
+		<File>lib/Release/Bullet3Common.lib</File>
+		<File>lib/Release/Bullet3Dynamics.lib</File>
+		<File>lib/Release/Bullet3Geometry.lib</File>
+		<File>lib/Release/Bullet3OpenCL_clew.lib</File>
+		<File>lib/Release/BulletCollision.lib</File>
+		<File>lib/Release/BulletDynamics.lib</File>
+		<File>lib/Release/BulletExampleBrowserLib.lib</File>
+		<File>lib/Release/BulletFileLoader.lib</File>
+		<File>lib/Release/BulletInverseDynamics.lib</File>
+		<File>lib/Release/BulletInverseDynamicsUtils.lib</File>
+		<File>lib/Release/BulletRobotics.lib</File>
+		<File>lib/Release/BulletRoboticsGUI.lib</File>
+		<File>lib/Release/BulletSoftBody.lib</File>
+		<File>lib/Release/BulletWorldImporter.lib</File>
+		<File>lib/Release/BulletXmlWorldImporter.lib</File>
+		<File>lib/Release/BussIK.lib</File>
+		<File>lib/Release/ConvexDecomposition.lib</File>
+		<File>lib/Release/GIMPACTUtils.lib</File>
+		<File>lib/Release/HACD.lib</File>
+		<File>lib/Release/LinearMath.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libz.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>src/*.h</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

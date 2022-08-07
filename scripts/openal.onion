@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="openal">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/kcat/openal-soft.git</SourceURL>
+
+	<ConfigCommand>cmake -DLIBTYPE=STATIC -DALSOFT_BACKEND_WINMM=false ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/OpenAL32.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libopenal.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/*.*</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

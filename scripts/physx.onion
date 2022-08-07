@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="physx">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/NVIDIAGameWorks/PhysX.git</SourceURL>
+
+	<ConfigCommand platform="windows">call ${SourcePath}/physx/generate_projects.bat vc16win64</ConfigCommand>
+	<ConfigCommand platform="linux">${SourcePath}/physx/generate_projects.sh linux</ConfigCommand>
+
+	<BuildCommand platform="windows">cmake --build ${SourcePath}/physx/compiler/vc16win64 --config Release ${MT}</BuildCommand>
+	<BuildCommand platform="linux">cmake --build ${SourcePath}/physx/compiler/linux-release --config Release ${MT}</BuildCommand>
+	
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+		<File>physx/bin/win.x86_64.vc142.md/release/PhysXCharacterKinematic_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXCommon_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXCooking_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXExtensions_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXFoundation_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXPvdSDK_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysXVehicle_static_64.lib</File>
+	    <File>physx/bin/win.x86_64.vc142.md/release/PhysX_static_64.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+        <File>physx/bin/linux.clang/release/libPhysX_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXPvdSDK_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXFoundation_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXExtensions_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXCooking_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXCommon_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXVehicle_static_64.a</File>
+        <File>physx/bin/linux.clang/release/libPhysXCharacterKinematic_static_64.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>physx/include/*.*</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>pxshared/include/*.*</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

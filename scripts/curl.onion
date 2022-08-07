@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="curl">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/curl/curl.git</SourceURL>
+
+	<Dependency platform="windows">
+		<Library>mbedtls</Library>
+		<IncludeVar>MBEDTLS_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar file="mbedtls.lib">MBEDTLS_LIBRARY</LibraryVar>
+		<LibraryVar file="mbedx509.lib">MBEDX509_LIBRARY</LibraryVar>
+        <LibraryVar file="mbedcrypto.lib">MBEDCRYPTO_LIBRARY</LibraryVar>
+	</Dependency>
+
+	<Dependency platform="linux">
+		<Library>mbedtls</Library>
+		<IncludeVar>MBEDTLS_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar file="libmbedtls.a">MBEDTLS_LIBRARY</LibraryVar>
+		<LibraryVar file="libmbedx509.a">MBEDX509_LIBRARY</LibraryVar>
+        <LibraryVar file="libmbedcrypto.a">MBEDCRYPTO_LIBRARY</LibraryVar>
+	</Dependency>
+
+	<Dependency>
+		<Library>zlib</Library>
+		<IncludeVar>ZLIB_INCLUDE_DIR</IncludeVar>
+        <LibraryVar>ZLIB_LIBRARY</LibraryVar>
+	</Dependency>
+
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DHTTP_ONLY=true -DCURL_ENABLE_SSL=true -DCURL_USE_MBEDTLS=true ${AdditionalDefines} ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/Release/libcurl.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/libcurl.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/*.h</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

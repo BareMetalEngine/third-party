@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="lz4">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/lz4/lz4.git</SourceURL>
+
+	<ConfigCommand>cmake -DLZ4_BUILD_CLI=false -DLZ4_BUILD_LEGACY_LZ4C=false -DBUILD_STATIC_LIBS=true -DBUILD_SHARED_LIBS=false ${SourcePath}/build/cmake/</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/lz4.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>liblz4.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Build</Location>
+		<Destination>include</Destination>
+		<File>zconf.h</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>lib/lz4.h</File>
+		<File>lib/lz4frame.h</File>
+		<File>lib/lz4hc.h</File>
+	</Artifact>
+
+</Library>

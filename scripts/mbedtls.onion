@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="mbedtls">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/Mbed-TLS/mbedtls.git</SourceURL>
+
+	<ConfigCommand>cmake -DENABLE_TESTING=false -DUSE_SHARED_MBEDTLS_LIBRARY=true -DGEN_FILES=true -DENABLE_PROGRAMS=false -DUSE_STATIC_MBEDTLS_LIBRARY=true -DUSE_SHARED_MBEDTLS_LIBRARY=false ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>library/Release/mbedcrypto.lib</File>
+		<File>library/Release/mbedtls.lib</File>
+		<File>library/Release/mbedx509.lib</File>		
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<!-- Note: the order MATTERS HERE -->
+		<File>library/libmbedx509.a</File>
+		<File>library/libmbedtls.a</File>
+		<File>library/libmbedcrypto.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/*.h</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

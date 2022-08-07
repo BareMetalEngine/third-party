@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="recast">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/recastnavigation/recastnavigation.git</SourceURL>
+
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=OFF -DRECASTNAVIGATION_DEMO=OFF -DRECASTNAVIGATION_TESTS=OFF -DRECASTNAVIGATION_EXAMPLES=OFF ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>DebugUtils/Release/DebugUtils.lib</File>
+		<File>Detour/Release/Detour.lib</File>
+		<File>DetourCrowd/Release/DetourCrowd.lib</File>
+		<File>DetourTileCache/Release/DetourTileCache.lib</File>
+		<File>Recast/Release/Recast.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libz.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>DebugUtils/Include/*.h</File>
+		<File>Detour/Include/*.h</File>
+		<File>DetourCrowd/Include/*.h</File>
+		<File>DetourTileCache/Include/*.h</File>
+		<File>Recast/Include/*.h</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>

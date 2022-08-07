@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="freetype">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/freetype/freetype.git</SourceURL>
+
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/freetype.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libfreetype.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Build</Location>
+		<Destination>include</Destination>
+		<File>include/*.h</File>
+		<Recursive>true</Recursive>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/*.h</File>
+		<Recursive>true</Recursive>
+	</Artifact>
+
+</Library>

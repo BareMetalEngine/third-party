@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="dxc">
+	
+	<!-- Completly different configuration between windows/linux -->
+
+	<SourceType platform="windows">URL</SourceType>
+	<SourceURL platform="windows">https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.6.2112/dxc_2021_12_08.zip</SourceURL>
+	<ConfigCommand platform="windows">echo Nop</ConfigCommand>
+	<BuildCommand platform="windows">echo Nop</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+		<File>lib/x64/dxcompiler.lib</File>
+	</Artifact>
+
+	<Artifact platform="windows">
+		<Type>Deploy</Type>
+		<Location>Source</Location>
+		<Destination>bin</Destination>
+		<File>bin/x64/dxcompiler.dll</File>
+	</Artifact>
+
+	<Artifact platfom="windows">
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>inc/dxcapi.h</File>
+		<File>inc/d3d12shader.h</File>
+	</Artifact>
+
+	<!-- Linux config -->
+
+	<SourceType platform="linux">GitHub</SourceType>
+	<SourceURL platform="linux">https://github.com/microsoft/DirectXShaderCompiler.git</SourceURL>
+	<ConfigCommand platform="linux">cmake -GNinja -C ${SourcePath}/cmake/caches/PredefinedParams.cmake -DSPIRV_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS=-Wno-error -DENABLE_DXIL2SPV=ON ${SourcePath}</ConfigCommand>
+	<BuildCommand platform="linux">ninja</BuildCommand>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/libdxcompiler.so.3.7</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Deploy</Type>
+		<Location>Build</Location>
+		<Destination>bin</Destination>
+		<File>lib/libdxcompiler.so.3.7</File>
+	</Artifact>
+
+	<Artifact platfom="linux">
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>include/dxc/dxcapi.h</File>
+	</Artifact>
+
+</Library>

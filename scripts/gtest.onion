@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="gtest">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/google/googletest.git</SourceURL>
+
+	<ConfigCommand>cmake -DBUILD_GMOCK=false -Dgtest_force_shared_crt=true -DBUILD_SHARED_LIBS=false ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/Release/gtest.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>lib/libgtest.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>googletest/include/*.*</File>
+		<Recursive>True</Recursive>
+	</Artifact>
+
+</Library>
