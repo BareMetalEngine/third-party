@@ -258,7 +258,7 @@ TEST(LLVM, RunSimpleFunction)
 		ASSERT_TRUE((bool)JIT);
 
 		auto localCtx = std::make_unique<LLVMContext>();
-		JIT->get()->addIRModule(ThreadSafeModule(std::move(ctx.extractModule()), std::move(localCtx)));
+		(void)JIT->get()->addIRModule(ThreadSafeModule(std::move(ctx.extractModule()), std::move(localCtx)));
 
 		// Look up the JIT'd code entry point.
 		auto symbol = JIT->get()->lookup("mul_add");

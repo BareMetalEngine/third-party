@@ -18,11 +18,11 @@
 		<File>Recast/Release/Recast.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux, darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>libz.a</File>
+		<File>Recast/libRecast.a</File>
 	</Artifact>
 
 	<Artifact>

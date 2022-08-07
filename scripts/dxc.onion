@@ -25,65 +25,54 @@
 	<Artifact platfom="windows">
 		<Type>Header</Type>
 		<Location>Source</Location>
-		<Destination>include</Destination>
+		<Destination>include/dxc</Destination>
 		<File>inc/dxcapi.h</File>
 		<File>inc/d3d12shader.h</File>
 	</Artifact>
 
 	<!-- Linux config -->
 
-	<SourceType platform="linux">GitHub</SourceType>
-	<SourceURL platform="linux">https://github.com/microsoft/DirectXShaderCompiler.git</SourceURL>
-	<ConfigCommand platform="linux">cmake -GNinja -C ${SourcePath}/cmake/caches/PredefinedParams.cmake -DSPIRV_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS=-Wno-error -DENABLE_DXIL2SPV=ON ${SourcePath}</ConfigCommand>
-	<BuildCommand platform="linux">ninja</BuildCommand>
+	<SourceType platform="linux,darwin">GitHub</SourceType>
+	<SourceURL platform="linux,darwin">https://github.com/microsoft/DirectXShaderCompiler.git</SourceURL>
+	<ConfigCommand platform="linux,darwin">cmake -GNinja -C ${SourcePath}/cmake/caches/PredefinedParams.cmake -DSPIRV_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS=-Wno-error -DENABLE_DXIL2SPV=ON ${SourcePath}</ConfigCommand>
+	<BuildCommand platform="linux,darwin">ninja</BuildCommand>
 
+	<Artifact platfom="linux,darwin">
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include/dxc</Destination>
+		<File>include/dxc/*.h</File>				
+		<Recursive>true</Recursive>
+	</Artifact>
+	
 	<Artifact platform="linux">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>lib/libdxcompiler.so</File>
+		<File>lib/libdxcompiler.so.3.7</File>
+		<File>lib/libLLVMDxcSupport.a</File>
 	</Artifact>
 
 	<Artifact platform="linux">
 		<Type>Deploy</Type>
 		<Location>Build</Location>
 		<Destination>bin</Destination>
-		<File>lib/libdxcompiler.so</File>
+		<File>lib/libdxcompiler.so.3.7</File>
 	</Artifact>
 
-	<Artifact platfom="linux">
-		<Type>Header</Type>
-		<Location>Source</Location>
-		<Destination>include</Destination>
-		<File>include/dxc/dxcapi.h</File>
-	</Artifact>
-
-        <!-- Darwin config -->
-
-	<SourceType platform="darwin">GitHub</SourceType>
-	<SourceURL platform="darwin">https://github.com/microsoft/DirectXShaderCompiler.git</SourceURL>
-	<ConfigCommand platform="darwin">cmake -GNinja -C ${SourcePath}/cmake/caches/PredefinedParams.cmake -DSPIRV_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS=-Wno-error -DENABLE_DXIL2SPV=ON ${SourcePath}</ConfigCommand>
-	<BuildCommand platform="darwin">ninja</BuildCommand>
 
 	<Artifact platform="darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>lib/libdxcompiler.dylib</File>
+		<File>lib/libdxcompiler.dylib.3.7</File>
 	</Artifact>
 
 	<Artifact platform="darwin">
 		<Type>Deploy</Type>
 		<Location>Build</Location>
 		<Destination>bin</Destination>
-		<File>lib/libdxcompiler.dylib</File>
-	</Artifact>
-
-	<Artifact platfom="darwin">
-		<Type>Header</Type>
-		<Location>Source</Location>
-		<Destination>include</Destination>
-		<File>include/dxc/dxcapi.h</File>
+		<File>lib/libdxcompiler.dylib.3.7</File>
 	</Artifact>
 
 </Library>

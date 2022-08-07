@@ -67,5 +67,6 @@
 	<TestApplication>
 		<SourceRoot>test_freetype</SourceRoot>
 		<LibraryDependency>freetype</LibraryDependency>
+		<LibraryDependency>zlib</LibraryDependency>
 	</TestApplication>
 </Module>

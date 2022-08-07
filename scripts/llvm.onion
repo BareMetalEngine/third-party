@@ -5,7 +5,10 @@
 	<SourceURL>https://github.com/llvm/llvm-project.git</SourceURL>
 
 	<ConfigCommand>cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_BUILD_LLVM_C_DYLIB=Off -DLLVM_BUILD_LLVM_DYLIB=Off -DLLVM_BUILD_RUNTIMES=Off -DLLVM_BUILD_RUNTIME=Off -DLLVM_INCLUDE_TESTS=Off -DLLVM_INCLUDE_TOOLS=Off -DLLVM_INCLUDE_UTILS=Off -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=true ${SourcePath}/llvm</ConfigCommand>
-	<BuildCommand>cmake --build ${BuildPath} --config Release</BuildCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<AdditionalSystemLibrary>ncurses</AdditionalSystemLibrary>
+	<AdditionalSystemLibrary>zstd</AdditionalSystemLibrary>
 
 	<Artifact platform="windows">
 		<Type>Library</Type>
@@ -89,7 +92,7 @@
         <File>Release/lib/LLVMXRay.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>

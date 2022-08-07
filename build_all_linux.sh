@@ -57,6 +57,7 @@ fi
 check_bin clang
 check_bin pip
 check_bin perl
+check_bin python
 check_bin ninja
 check_bin cmake
 check_bin xterm
@@ -73,6 +74,8 @@ check_lib libglu1-mesa-dev
 check_lib freeglut3-dev
 check_lib libcg
 check_lib libcggl
+check_lib libbrotli-dev
+check_lib libzstd-dev
 
 # clone the onion
 export ONION=../onion_tool/bin/onion
@@ -95,21 +98,23 @@ if [ ! -f $ONION ]; then
 fi
 
 # compile the libs
-$ONION library -commit -library=scripts/zlib.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -commit -library=scripts/lz4.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -commit -library=scripts/freetype.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -commit -library=scripts/freeimage.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -commit -library=scripts/squish.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -commit -library=scripts/dxc.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/mbedtls.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/ofbx.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/lua.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/gtest.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/imgui.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/embree.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/physx.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/openal.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/llvm.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/curl.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/bullet.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-#$ONION library -commit -library=scripts/recast.onion -token=$GITHUB_TOKEN -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#echo -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/zlib.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/lz4.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+$ONION library -upload -library=scripts/freetype.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/freeimage.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/squish.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/dxc.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/mbedtls.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/ofbx.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/lua.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/gtest.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/imgui.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/embree.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/physx.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/openal.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/llvm.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/curl.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/bullet.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/recast.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+

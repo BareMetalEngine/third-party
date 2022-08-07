@@ -206,31 +206,23 @@ std::filesystem::path MakeTestDataPath(std::string_view name)
 
 bool LoadFileToBuffer(const std::filesystem::path& path, std::vector<uint8_t>& outBuffer)
 {
-	try
-	{
-		std::ifstream file(path, std::ios::binary);
-		file.unsetf(std::ios::skipws);
+    std::ifstream file(path, std::ios::binary);
+    file.unsetf(std::ios::skipws);
 
-		if (!file.is_open())
-		{
-			std::cout << "Unable to open file " << path << "\n";
-			return false;
-		}
+    if (!file.is_open())
+    {
+        std::cout << "Unable to open file " << path << "\n";
+        return false;
+    }
 
-		file.seekg(0, std::ios::end);
-		auto fileSize = file.tellg();
-		file.seekg(0, std::ios::beg);
+    file.seekg(0, std::ios::end);
+    auto fileSize = file.tellg();
+    file.seekg(0, std::ios::beg);
 
-		outBuffer.resize(fileSize);
-		file.read((char*)outBuffer.data(), fileSize);
+    outBuffer.resize(fileSize);
+    file.read((char*)outBuffer.data(), fileSize);
 
-		return true;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "Error reading file " << path << ": " << e.what() << "\n";
-		return false;
-	}
+    return true;
 }
 
 static void FreeImageOutput(FREE_IMAGE_FORMAT fif, const char* msg)

@@ -14,14 +14,7 @@
 		<File>Release/squish.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
-		<Type>Library</Type>
-		<Location>Build</Location>
-		<Destination>lib</Destination>
-		<File>libsquish.a</File>
-	</Artifact>
-
-        <Artifact platform="darwin">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
@@ -34,5 +27,7 @@
 		<Destination>include</Destination>
 		<File>squish.h</File>
 	</Artifact>
+	
+	<AdditionalSystemLibrary>gomp</AdditionalSystemLibrary>
 
 </Library>

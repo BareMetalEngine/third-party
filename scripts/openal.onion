@@ -14,7 +14,7 @@
 		<File>Release/OpenAL32.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>

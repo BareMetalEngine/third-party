@@ -26,32 +26,18 @@
 	    <File>physx/bin/win.x86_64.vc142.md/release/PhysX_static_64.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Source</Location>
 		<Destination>lib</Destination>
-        <File>physx/bin/linux.clang/release/libPhysX_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXPvdSDK_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXFoundation_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXExtensions_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXCooking_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXCommon_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXVehicle_static_64.a</File>
-        <File>physx/bin/linux.clang/release/libPhysXCharacterKinematic_static_64.a</File>
-	</Artifact>
-
-        <Artifact platform="darwin">
-		<Type>Library</Type>
-		<Location>Source</Location>
-		<Destination>lib</Destination>
-        <File>physx/bin/mac64.clang/release/libPhysX_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXPvdSDK_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXFoundation_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXExtensions_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXCooking_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXCommon_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXVehicle_static_64.a</File>
-        <File>physx/bin/mac64.clang/release/libPhysXCharacterKinematic_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysX_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXPvdSDK_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXExtensions_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXCooking_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXVehicle_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXCharacterKinematic_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXCommon_static_64.a</File>
+		<File>physx/bin/linux.clang/release/libPhysXFoundation_static_64.a</File>		
 	</Artifact>
 
 	<Artifact>

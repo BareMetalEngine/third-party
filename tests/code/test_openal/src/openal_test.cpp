@@ -7,6 +7,8 @@
 #include "build.h"
 #include <algorithm>
 #include <vector>
+#include <thread>
+#include <math.h>
 
 #define AL_LIBTYPE_STATIC
 #include <AL/al.h>
@@ -160,9 +162,9 @@ struct SineBuffer : public WrappedBuffer
 		for (int i=0; i<numSamples; ++i)
 		{
 			float f = i / (float)sampleRate;
-			//float v = 0.1f * std::sin(f * freq) + 0.5f;
+			//float v = 0.1f * sin(f * freq) + 0.5f;
 			//int val = std::clamp<int>(v * 65536.0f, 0, 65535);
-			float v = 0.5f * std::sin(f * freq);
+			float v = 0.5f * sin(f * freq);
 			int val = std::clamp<int>((int)(v * 32767.0f), std::numeric_limits<short>::min(), std::numeric_limits<short>::max());
 			samples[i] = (short)val;
 		}

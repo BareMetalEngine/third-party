@@ -14,19 +14,18 @@
 		<File>Release/freetype.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
 		<File>libfreetype.a</File>
 	</Artifact>
-
-        <Artifact platform="darwin">
-		<Type>Library</Type>
-		<Location>Build</Location>
-		<Destination>lib</Destination>
-		<File>libfreetype.a</File>
-	</Artifact>
+	
+	<AdditionalSystemLibrary platform="linux,darwin">harfbuzz</AdditionalSystemLibrary>
+	<AdditionalSystemLibrary platform="linux,darwin">png</AdditionalSystemLibrary>
+	<AdditionalSystemLibrary platform="linux,darwin">brotlidec</AdditionalSystemLibrary>
+	<AdditionalSystemLibrary platform="linux,darwin">brotlicommon</AdditionalSystemLibrary>
+	<AdditionalSystemLibrary platform="linux,darwin">bz2</AdditionalSystemLibrary>
 
 	<Artifact>
 		<Type>Header</Type>
