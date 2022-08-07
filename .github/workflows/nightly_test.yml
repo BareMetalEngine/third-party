@@ -1,0 +1,33 @@
+name: Nightly test
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+jobs:
+  TestWindows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v1
+      - uses: lukka/get-cmake@v3.23.0
+      - run: |
+              git clone https://github.com/BareMetalEngine/onion.git C:\onion
+              pushd tests
+              C:\onion\onion.exe configure
+              C:\onion\onion.exe make
+              C:\onion\onion.exe build
+              C:\onion\onion.exe test
+  TestLinux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v1
+      - uses: shogo82148/actions-setup-perl@v1.16.0
+      - uses: lukka/get-cmake@v3.23.0
+      - run: |
+              git clone https://github.com/BareMetalEngine/onion.git ~/onion/
+              pushd tests
+              ~/onion/onion configure
+              ~/onion/onion make
+              ~/onion/onion build
+              ~/onion/onion test

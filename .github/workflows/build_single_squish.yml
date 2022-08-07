@@ -1,0 +1,14 @@
+name: Auto build (squish)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0,3'
+  push:
+    paths:
+      - 'scripts/squish.onion'
+jobs:
+  build_squish:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: squish

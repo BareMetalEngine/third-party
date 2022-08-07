@@ -1,0 +1,15 @@
+name: Auto build (physx)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0,3'
+  push:
+    paths:
+      - 'scripts/physx.onion'
+jobs:
+  build_physx:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: physx
+      additional_linux_libs: "libxxf86vm-dev libglu1-mesa-dev freeglut3-dev libcg libcggl libharfbuzz-dev"

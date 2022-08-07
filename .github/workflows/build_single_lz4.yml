@@ -1,0 +1,14 @@
+name: Auto build (lz4)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0,3'
+  push:
+    paths:
+      - 'scripts/lz4.onion'
+jobs:
+  build_lz4:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: lz4

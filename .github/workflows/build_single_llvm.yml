@@ -1,0 +1,14 @@
+name: Auto build (llvm)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0'
+  push:
+    paths:
+      - 'scripts/llvm.onion'
+jobs:
+  build_llvm:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: llvm

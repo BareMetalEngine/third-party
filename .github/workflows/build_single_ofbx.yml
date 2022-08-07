@@ -1,0 +1,14 @@
+name: Auto build (ofbx)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0,3'
+  push:
+    paths:
+      - 'scripts/ofbx.onion'
+jobs:
+  build_ofbx:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: ofbx

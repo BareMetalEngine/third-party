@@ -1,0 +1,38 @@
+name: Build single library
+on:
+  workflow_call:
+    inputs:
+      lib:
+        required: true
+        type: string
+      additional_linux_libs:        
+        required: false
+        type: string
+        default: "build-essential"
+jobs:
+  BuildLibraryWindows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v1
+      - uses: lukka/get-cmake@v3.23.0
+      - run: |
+              git clone https://github.com/BareMetalEngine/onion.git C:\onion
+              git config --global user.email "actions@github.com"
+              git config --global user.name "GitHub Actions"
+              pip install -U Jinja2
+      - run: C:\onion\onion.exe library -upload -library="scripts/${{inputs.lib}}.onion" -awsKey=${{secrets.ONION_AWS_KEY}} -awsSecret=${{secrets.ONION_AWS_SECRET}}
+  BuildLibraryLinux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v1
+      - uses: shogo82148/actions-setup-perl@v1.16.0
+      - uses: lukka/get-cmake@v3.23.0
+      - run: |
+              git clone https://github.com/BareMetalEngine/onion.git ~/onion/
+              git config --global user.email "actions@github.com"
+              git config --global user.name "GitHub Actions"
+              sudo apt-get install ${{inputs.additional_linux_libs}}
+              pip install -U Jinja2
+      - run: ~/onion/onion library -upload -library="scripts/${{inputs.lib}}.onion" -awsKey=${{secrets.ONION_AWS_KEY}} -awsSecret=${{secrets.ONION_AWS_SECRET}}

@@ -1,0 +1,14 @@
+name: Auto build (embree)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0'
+  push:
+    paths:
+      - 'scripts/embree.onion'
+jobs:
+  build_embree:
+    uses: ./.github/workflows/action_lib.yml
+    secrets: inherit
+    with:
+      lib: embree
