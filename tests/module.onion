@@ -8,6 +8,7 @@
 	<TestApplication>
 		<SourceRoot>test_embree</SourceRoot>
 		<LibraryDependency>embree</LibraryDependency>
+		<UseExceptions>true</UseExceptions>
 	</TestApplication>
 	<TestApplication>
 		<SourceRoot>test_llvm</SourceRoot>

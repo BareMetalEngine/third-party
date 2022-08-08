@@ -23,7 +23,7 @@ jobs:
               pip install -U Jinja2
       - run: C:\onion\onion.exe library -upload -library="scripts/${{inputs.lib}}.onion" -awsKey=${{secrets.ONION_AWS_KEY}} -awsSecret=${{secrets.ONION_AWS_SECRET}}
   BuildLibraryLinux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v1
