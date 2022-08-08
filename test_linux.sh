@@ -26,9 +26,9 @@ export TEST=`pwd`/tests/
 echo Test directory: "$TEST"
 
 # compile the test project
-$ONION configure -module="$TEST" 
-$ONION generate -module="$TEST"
-$ONION build -module="$TEST"
-$ONION test -module="$TEST" 
+$ONION configure -module="$TEST"
+#$ONION generate -module="$TEST"
+#$ONION build -module="$TEST"
+#$ONION test -module="$TEST" 
 
 

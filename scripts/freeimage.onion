@@ -5,8 +5,8 @@
 	<SourceURL>https://github.com/WinMerge/freeimage.git</SourceURL>
 
 	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DFREEIMAGE_LIB=true -DSUPPORT_FMT_JPEG=true -DSUPPORT_FMT_OPENEXR=true -DSUPPORT_FMT_WEBP=true -DSUPPORT_FMT_TIFF=true ${SourcePath}</ConfigCommand>
-	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
-
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>	
+		
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>

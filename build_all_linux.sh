@@ -99,10 +99,10 @@ fi
 
 # compile the libs
 #echo -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -upload -library=scripts/zlib.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -upload -library=scripts/lz4.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/zlib.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/lz4.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
 $ONION library -upload -library=scripts/freetype.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
-$ONION library -upload -library=scripts/freeimage.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
+#$ONION library -upload -library=scripts/freeimage.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
 #$ONION library -upload -library=scripts/squish.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
 #$ONION library -upload -library=scripts/dxc.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
 #$ONION library -upload -library=scripts/mbedtls.onion -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET
