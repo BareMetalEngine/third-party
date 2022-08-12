@@ -26,7 +26,7 @@
 	    <File>physx/bin/win.x86_64.vc142.md/release/PhysX_static_64.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux,darwin">
+	<Artifact platform="linux">
 		<Type>Library</Type>
 		<Location>Source</Location>
 		<Destination>lib</Destination>
@@ -38,6 +38,20 @@
 		<File>physx/bin/linux.clang/release/libPhysXCharacterKinematic_static_64.a</File>
 		<File>physx/bin/linux.clang/release/libPhysXCommon_static_64.a</File>
 		<File>physx/bin/linux.clang/release/libPhysXFoundation_static_64.a</File>		
+	</Artifact>
+
+	<Artifact platform="darwin">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysX.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXPvdSDK.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXExtensions.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXCooking.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXVehicle.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXCharacterKinematic.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXCommon.a</File>
+		<File>physx/compiler/mac64/sdk_source_bin/libPhysXFoundation.a</File>		
 	</Artifact>
 
 	<Artifact>

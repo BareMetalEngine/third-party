@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <Library name="curl">
-	
+
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/curl/curl.git</SourceURL>
 
@@ -12,7 +12,7 @@
         <LibraryVar file="mbedcrypto.lib">MBEDCRYPTO_LIBRARY</LibraryVar>
 	</Dependency>
 
-	<Dependency platform="linux">
+	<Dependency platform="linux,darwin">
 		<Library>mbedtls</Library>
 		<IncludeVar>MBEDTLS_INCLUDE_DIRS</IncludeVar>
         <LibraryVar file="libmbedtls.a">MBEDTLS_LIBRARY</LibraryVar>
@@ -36,7 +36,7 @@
 		<File>lib/Release/libcurl.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>

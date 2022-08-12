@@ -4,7 +4,8 @@
 	<SourceType>URL</SourceType>
 	<SourceURL>https://netix.dl.sourceforge.net/project/libsquish/libsquish-1.15.tgz</SourceURL>
 
-	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="windows,linux,darwin_x86">cmake ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="darwin_arm">cmake -DBUILD_SQUISH_WITH_SSE2=Off ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Artifact platform="windows">
@@ -14,7 +15,7 @@
 		<File>Release/squish.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux,darwin">
+	<Artifact platform="linux,darwin,darwin_arm">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>

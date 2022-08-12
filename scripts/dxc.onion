@@ -65,14 +65,14 @@
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>lib/libdxcompiler.dylib.3.7</File>
+		<File>lib/libdxcompiler.3.7.dylib</File>
 	</Artifact>
 
 	<Artifact platform="darwin">
 		<Type>Deploy</Type>
 		<Location>Build</Location>
 		<Destination>bin</Destination>
-		<File>lib/libdxcompiler.dylib.3.7</File>
+		<File>lib/libdxcompiler.3.7.dylib</File>
 	</Artifact>
 
 </Library>

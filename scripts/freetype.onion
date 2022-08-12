@@ -26,10 +26,10 @@
 	<AdditionalSystemLibrary platform="linux,darwin">brotlidec</AdditionalSystemLibrary>
 	<AdditionalSystemLibrary platform="linux,darwin">brotlicommon</AdditionalSystemLibrary>
 	<AdditionalSystemLibrary platform="linux,darwin">bz2</AdditionalSystemLibrary>
-	<AdditionalSystemPackage platform="linux">libharfbuzz-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux">libbrotli-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux">libbz2-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux">libpng-dev</AdditionalSystemPackage>
+	<AdditionalSystemPackage platform="linux,darwin">libharfbuzz-dev</AdditionalSystemPackage>
+	<AdditionalSystemPackage platform="linux,darwin">libbrotli-dev</AdditionalSystemPackage>
+	<AdditionalSystemPackage platform="linux,darwin">libbz2-dev</AdditionalSystemPackage>
+	<AdditionalSystemPackage platform="linux,darwin">libpng-dev</AdditionalSystemPackage>
 
 	<Artifact>
 		<Type>Header</Type>

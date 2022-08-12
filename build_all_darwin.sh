@@ -1,6 +1,4 @@
 # !/bin/bash
-set -e 
-set -o pipefail
 
 # exe checker
 function check_bin() {
@@ -14,7 +12,10 @@ function check_bin() {
 
 # python lib checker
 function check_pip() {
-    pip3 show $1 > /dev/null
+    #pip3 show $1 > /dev/null
+    args="import $1"
+    python3 -c \"$args\"
+    echo python3 -c \"$args\"
     if [ $? -ne 0 ]
     then
         echo "$1 is not installed" >&2
@@ -94,23 +95,29 @@ if [ ! -f $ONION ]; then
     fi
 fi
 
+# fail on any error in building
+set -e
+set -o pipefail
+
+# determine if AWS keys are there
+export SUBMIT_PARAMS="-upload -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET"
+
 # compile the libs
-echo Using token: $GITHUB_TOKEN
-#$ONION library -commit -library=scripts/zlib.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/lz4.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/freetype.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/freeimage.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/squish.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/dxc.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/mbedtls.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/ofbx.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/lua.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/gtest.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/imgui.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/embree.onion -token=$GITHUB_TOKEN
-$ONION library -commit -library=scripts/physx.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/openal.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/llvm.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/curl.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/bullet.onion -token=$GITHUB_TOKEN
-#$ONION library -commit -library=scripts/recast.onion -token=$GITHUB_TOKEN
+$ONION library -library=scripts/zlib.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/lz4.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/freetype.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/freeimage.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/squish.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/dxc.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/mbedtls.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/ofbx.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/lua.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/gtest.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/imgui.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/embree.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/physx.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/openal.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/llvm.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/curl.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/bullet.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/recast.onion $SUBMIT_PARAMS

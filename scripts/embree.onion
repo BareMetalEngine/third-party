@@ -46,10 +46,11 @@
 		<File>libembree3.dylib</File>		
 	</Artifact>
 
+
 	<Artifact platform="darwin">
 		<Type>Deploy</Type>
 		<Location>Build</Location>
-		<Destination>lib</Destination>
+		<Destination>bin</Destination>
 		<File>libembree3.dylib</File>		
 	</Artifact>
 

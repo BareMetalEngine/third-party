@@ -35,11 +35,21 @@
 		<File>lib/Release/LinearMath.lib</File>
 	</Artifact>
 
-	<Artifact platform="linux">
+	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>libz.a</File>
+		<File>src/BulletSoftBody/libBulletSoftBody.a</File>
+		<File>src/LinearMath/libLinearMath.a</File>
+		<File>src/Bullet3Collision/libBullet3Collision.a</File>
+		<File>src/Bullet3Common/libBullet3Common.a</File>
+		<File>src/Bullet3Dynamics/libBullet3Dynamics.a</File>
+		<File>src/Bullet3Geometry/libBullet3Geometry.a</File>
+		<File>src/Bullet3OpenCL/libBullet3OpenCL_clew.a</File>
+		<File>src/Bullet3Serialize/Bullet2FileLoader/libBullet2FileLoader.a</File>
+		<File>src/BulletCollision/libBulletCollision.a</File>
+		<File>src/BulletDynamics/libBulletDynamics.a</File>
+		<File>src/BulletInverseDynamics/libBulletInverseDynamics.a</File>
 	</Artifact>
 
 	<Artifact>
