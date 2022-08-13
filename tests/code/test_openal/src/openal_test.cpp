@@ -224,8 +224,9 @@ TEST(OpenAL, PlayTestSound)
 
 	int source_state = 0;
 	alGetSourcei(s.source, AL_SOURCE_STATE, &source_state);
-	while (source_state == AL_PLAYING) {
-		std::this_thread::sleep_for(std::chrono::duration<double>(1.0));
+    int counter = 10;
+	while (source_state == AL_PLAYING && --counter) {
+		std::this_thread::sleep_for(std::chrono::duration<double>(0.1));
 		alGetSourcei(s.source, AL_SOURCE_STATE, &source_state);
 	}
 }
