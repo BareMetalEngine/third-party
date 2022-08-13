@@ -4,8 +4,8 @@
 	<SourceType>URL</SourceType>
 	<SourceURL>https://netix.dl.sourceforge.net/project/libsquish/libsquish-1.15.tgz</SourceURL>
 
-	<ConfigCommand platform="windows,linux,darwin_x86">cmake ${SourcePath}</ConfigCommand>
-	<ConfigCommand platform="darwin_arm">cmake -DBUILD_SQUISH_WITH_SSE2=Off ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="windows,linux,darwin_x86">cmake -DBUILD_SQUISH_WITH_OPENMP=Off ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="darwin_arm">cmake -DBUILD_SQUISH_WITH_SSE2=Off -DBUILD_SQUISH_WITH_OPENMP=Off ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Artifact platform="windows">
@@ -28,7 +28,5 @@
 		<Destination>include</Destination>
 		<File>squish.h</File>
 	</Artifact>
-	
-	<AdditionalSystemLibrary>gomp</AdditionalSystemLibrary>
 
 </Library>

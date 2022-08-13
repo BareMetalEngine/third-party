@@ -4,11 +4,16 @@
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/llvm/llvm-project.git</SourceURL>
 
-	<ConfigCommand>cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_BUILD_LLVM_C_DYLIB=Off -DLLVM_BUILD_LLVM_DYLIB=Off -DLLVM_BUILD_RUNTIMES=Off -DLLVM_BUILD_RUNTIME=Off -DLLVM_INCLUDE_TESTS=Off -DLLVM_INCLUDE_TOOLS=Off -DLLVM_INCLUDE_UTILS=Off -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=true ${SourcePath}/llvm</ConfigCommand>
+	<ConfigCommand>cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_BUILD_LLVM_C_DYLIB=Off -DLLVM_BUILD_LLVM_DYLIB=Off -DLLVM_BUILD_RUNTIMES=Off -DLLVM_BUILD_RUNTIME=Off -DLLVM_INCLUDE_TESTS=Off -DLLVM_INCLUDE_TOOLS=Off -DLLVM_INCLUDE_UTILS=Off -DLLVM_TARGETS_TO_BUILD="X86;AArch64" -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=true ${SourcePath}/llvm</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
+    <Dependency>
+        <Library>zstd</Library>
+        <IncludeVar>zstd_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar>zstd_LIBRARIES</LibraryVar>
+    </Dependency>
+
 	<AdditionalSystemLibrary>ncurses</AdditionalSystemLibrary>
-	<AdditionalSystemLibrary>zstd</AdditionalSystemLibrary>
 
 	<Artifact platform="windows">
 		<Type>Library</Type>
@@ -102,6 +107,7 @@
 		<File>lib/libLLVMLTO.a</File>
 		<File>lib/libLLVMPasses.a</File>
 		<File>lib/libLLVMX86CodeGen.a</File>
+		<File>lib/libLLVMAArch64CodeGen.a</File>
 		<File>lib/libLLVMCoroutines.a</File>
 		<File>lib/libLLVMDWARFLinker.a</File>
 		<File>lib/libLLVMGlobalISel.a</File>
@@ -144,16 +150,20 @@
 		<File>lib/libLLVMDebugInfoPDB.a</File>
 		<File>lib/libLLVMX86TargetMCA.a</File>
 		<File>lib/libLLVMX86AsmParser.a</File>
+        <File>lib/libLLVMAArch64AsmParser.a</File>
 		<File>lib/libLLVMObject.a</File>
 		<File>lib/libLLVMIRReader.a</File>
 		<File>lib/libLLVMX86Disassembler.a</File>
 		<File>lib/libLLVMX86Desc.a</File>
+		<File>lib/libLLVMAArch64Disassembler.a</File>
+		<File>lib/libLLVMAArch64Desc.a</File>
 		<File>lib/libLLVMBitReader.a</File>
 		<File>lib/libLLVMAsmParser.a</File>
 		<File>lib/libLLVMCFGuard.a</File>
 		<File>lib/libLLVMCore.a</File>
 		<File>lib/libLLVMOrcTargetProcess.a</File>
 		<File>lib/libLLVMX86Info.a</File>
+		<File>lib/libLLVMAArch64Info.a</File>
 		<File>lib/libLLVMOrcShared.a</File>
 		<File>lib/libLLVMFrontendOpenACC.a</File>
 		<File>lib/libLLVMRemarks.a</File>
@@ -176,6 +186,7 @@
 		<File>lib/libLLVMLineEditor.a</File>
 		<File>lib/libLLVMSupport.a</File>
 		<File>lib/libLLVMDemangle.a</File>
+		<File>lib/libLLVMAArch64Utils.a</File>
 	</Artifact>
 
 	<Artifact>

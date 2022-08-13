@@ -103,10 +103,18 @@ set -o pipefail
 export SUBMIT_PARAMS="-upload -awsKey=$AWS_KEY -awsSecret=$AWS_SECRET"
 
 # compile the libs
+$ONION library -library=scripts/squish.onion $SUBMIT_PARAMS
+exit 0
 $ONION library -library=scripts/zlib.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/zstd.onion $SUBMIT_PARAMS
 $ONION library -library=scripts/lz4.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/png.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/harfbuzz.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/bz2.onion $SUBMIT_PARAMS
+$ONION library -library=scripts/brotli.onion $SUBMIT_PARAMS
 $ONION library -library=scripts/freetype.onion $SUBMIT_PARAMS
 $ONION library -library=scripts/freeimage.onion $SUBMIT_PARAMS
+exit 0
 $ONION library -library=scripts/squish.onion $SUBMIT_PARAMS
 $ONION library -library=scripts/dxc.onion $SUBMIT_PARAMS
 $ONION library -library=scripts/mbedtls.onion $SUBMIT_PARAMS

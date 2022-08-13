@@ -43,15 +43,14 @@
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>libembree3.dylib</File>		
+		<File>libembree3.3.dylib</File>
 	</Artifact>
-
 
 	<Artifact platform="darwin">
 		<Type>Deploy</Type>
 		<Location>Build</Location>
 		<Destination>bin</Destination>
-		<File>libembree3.dylib</File>		
+		<File>libembree3.3.dylib</File>
 	</Artifact>
 
 	<Artifact>

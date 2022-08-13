@@ -9,6 +9,8 @@
 #ifdef _WIN32
 #include <Windows.h>
 #include <ole2.h>
+#else
+#define __EMULATE_UUID 1
 #endif
 
 #include <dxc/dxcapi.h>
@@ -221,7 +223,7 @@ public:
 
 	virtual ULONG STDMETHODCALLTYPE Release(void) override { return 1; }
 
-	virtual HRESULT STDMETHODCALLTYPE LoadSource(LPCWSTR pFilename, IDxcBlob** ppIncludeSource)
+	virtual HRESULT STDMETHODCALLTYPE LoadSource(LPCWSTR pFilename, IDxcBlob** ppIncludeSource) override
 	{
 		for (const auto& entry : m_files)
 		{

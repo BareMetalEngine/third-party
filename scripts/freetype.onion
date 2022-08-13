@@ -7,6 +7,30 @@
 	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
+	<Dependency>
+		<Library>brotli</Library>
+		<IncludeVar>BROTLIDEC_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar file="libbrotlidec-static.a">BROTLIDEC_LIBRARIES</LibraryVar>
+	</Dependency>
+
+    <Dependency>
+        <Library>bz2</Library>
+        <IncludeVar>BZIP2_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar>BZIP2_LIBRARIES</LibraryVar>
+    </Dependency>
+
+    <Dependency>
+        <Library>png</Library>
+        <IncludeVar>PNG_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar>PNG_LIBRARIES</LibraryVar>
+    </Dependency>
+
+    <Dependency>
+        <Library>harfbuzz</Library>
+        <IncludeVar>HarfBuzz_INCLUDE_DIR</IncludeVar>
+        <LibraryVar>HarfBuzz_LIBRARY</LibraryVar>
+    </Dependency>
+
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>
@@ -20,16 +44,6 @@
 		<Destination>lib</Destination>
 		<File>libfreetype.a</File>
 	</Artifact>
-	
-	<AdditionalSystemLibrary platform="linux,darwin">harfbuzz</AdditionalSystemLibrary>
-	<AdditionalSystemLibrary platform="linux,darwin">png</AdditionalSystemLibrary>
-	<AdditionalSystemLibrary platform="linux,darwin">brotlidec</AdditionalSystemLibrary>
-	<AdditionalSystemLibrary platform="linux,darwin">brotlicommon</AdditionalSystemLibrary>
-	<AdditionalSystemLibrary platform="linux,darwin">bz2</AdditionalSystemLibrary>
-	<AdditionalSystemPackage platform="linux,darwin">libharfbuzz-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux,darwin">libbrotli-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux,darwin">libbz2-dev</AdditionalSystemPackage>
-	<AdditionalSystemPackage platform="linux,darwin">libpng-dev</AdditionalSystemPackage>
 
 	<Artifact>
 		<Type>Header</Type>

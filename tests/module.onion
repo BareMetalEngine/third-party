@@ -64,10 +64,16 @@
 	<TestApplication>
 		<SourceRoot>test_freeimage</SourceRoot>
 		<LibraryDependency>freeimage</LibraryDependency>
+		<LibraryDependency>zlib</LibraryDependency>
+		<LibraryDependency>png</LibraryDependency>
 	</TestApplication>
 	<TestApplication>
 		<SourceRoot>test_freetype</SourceRoot>
 		<LibraryDependency>freetype</LibraryDependency>
 		<LibraryDependency>zlib</LibraryDependency>
+		<LibraryDependency>bz2</LibraryDependency>
+		<LibraryDependency>brotli</LibraryDependency>
+		<LibraryDependency>harfbuzz</LibraryDependency>
+		<LibraryDependency>png</LibraryDependency>
 	</TestApplication>
 </Module>

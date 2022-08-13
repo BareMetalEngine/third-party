@@ -66,6 +66,7 @@
 		<Location>Build</Location>
 		<Destination>lib</Destination>
 		<File>lib/libdxcompiler.3.7.dylib</File>
+		<File>lib/libLLVMDxcSupport.a</File>
 	</Artifact>
 
 	<Artifact platform="darwin">

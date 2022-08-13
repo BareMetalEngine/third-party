@@ -167,7 +167,7 @@ TEST(Cooking, CompileTriangleMesh)
 	StdVectorOutputStream output;
 	PxTriangleMeshCookingResult::Enum condition = PxTriangleMeshCookingResult::eSUCCESS;
 	ASSERT_TRUE(cooking->cookTriangleMesh(meshDesc, output, &condition));
-	ASSERT_EQ(PxConvexMeshCookingResult::eSUCCESS, condition);
+	ASSERT_EQ(PxTriangleMeshCookingResult::eSUCCESS, condition);
 
 	EXPECT_EQ(313, output.data.size());
 

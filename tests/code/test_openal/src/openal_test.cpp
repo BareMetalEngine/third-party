@@ -16,14 +16,12 @@
 
 //--
 
-#if 0
-
 TEST(OpenAL, InitDevice)
 {
 	ALCdevice* device = alcOpenDevice(NULL);
-	ASSERT_NE(nullptr, device);
+    if (!device) return;
 
-	alcCloseDevice(device);
+    alcCloseDevice(device);
 }
 
 //--
@@ -31,7 +29,7 @@ TEST(OpenAL, InitDevice)
 TEST(OpenAL, CheckEnumerationExtension)
 {
 	ALCdevice* device = alcOpenDevice(NULL);
-	ASSERT_NE(nullptr, device);
+    if (!device) return;
 
 	auto enumeration = alcIsExtensionPresent(NULL, "ALC_ENUMERATION_EXT");
 	EXPECT_TRUE(enumeration);
@@ -44,7 +42,7 @@ TEST(OpenAL, CheckEnumerationExtension)
 TEST(OpenAL, ListAudioDevices)
 {
 	ALCdevice* device = alcOpenDevice(NULL);
-	ASSERT_NE(nullptr, device);
+    if (!device) return;
 
 	if (auto enumeration = alcIsExtensionPresent(NULL, "ALC_ENUMERATION_EXT"))
 	{
@@ -68,12 +66,15 @@ public:
 	ALCdevice* m_device = nullptr;
 	ALCcontext* m_context = nullptr;
 
-	WrappedContext()
-	{
-		m_device = alcOpenDevice(NULL);
-		EXPECT_NE(nullptr, m_device);
+	WrappedContext() {
+    }
 
-		m_context = alcCreateContext(m_device, NULL);
+    bool init()
+    {
+		m_device = alcOpenDevice(NULL);
+        if (!m_device) return false;
+
+        m_context = alcCreateContext(m_device, NULL);
 		EXPECT_NE(nullptr, m_context);
 
 		auto ret = alcMakeContextCurrent(m_context);
@@ -84,6 +85,8 @@ public:
 		alListener3f(AL_POSITION, 0, 0, 1.0f);
 		alListener3f(AL_VELOCITY, 0, 0, 0);
 		alListenerfv(AL_ORIENTATION, listenerOri);
+
+        return true;
 	}
 
 	~WrappedContext()
@@ -101,6 +104,7 @@ public:
 TEST(OpenAL, CreateContext)
 {
 	WrappedContext ctx;
+    if (!ctx.init()) return;
 	EXPECT_TRUE(ctx.m_context);
 }
 
@@ -176,6 +180,7 @@ struct SineBuffer : public WrappedBuffer
 TEST(OpenAL, CreateSource)
 {
 	WrappedContext ctx;
+    if (!ctx.init()) return;
 	EXPECT_TRUE(ctx.m_context);
 
 	WrappedSource s;
@@ -185,6 +190,7 @@ TEST(OpenAL, CreateSource)
 TEST(OpenAL, CreateBuffer)
 {
 	WrappedContext ctx;
+    if (!ctx.init()) return;
 	EXPECT_TRUE(ctx.m_context);
 
 	WrappedBuffer b;
@@ -194,6 +200,7 @@ TEST(OpenAL, CreateBuffer)
 TEST(OpenAL, CreateBufferWithData)
 {
 	WrappedContext ctx;
+    if (!ctx.init()) return;
 	EXPECT_TRUE(ctx.m_context);
 
 	SineBuffer b(44100, 0.5f, 1000.0f);
@@ -203,6 +210,7 @@ TEST(OpenAL, CreateBufferWithData)
 TEST(OpenAL, PlayTestSound)
 {
 	WrappedContext ctx;
+    if (!ctx.init()) return;
 	EXPECT_TRUE(ctx.m_context);
 
 	SineBuffer b(44100, 0.5f, 1000.0f);
@@ -221,5 +229,3 @@ TEST(OpenAL, PlayTestSound)
 		alGetSourcei(s.source, AL_SOURCE_STATE, &source_state);
 	}
 }
-
-#endif

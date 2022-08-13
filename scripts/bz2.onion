@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="bz2">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>git://sourceware.org/git/bzip2.git</SourceURL>
+
+	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/zlibstatic.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux,darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libbz2.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>bzlib.h</File>
+	</Artifact>
+
+</Library>

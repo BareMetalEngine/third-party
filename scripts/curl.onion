@@ -29,6 +29,9 @@
 	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DHTTP_ONLY=true -DCURL_ENABLE_SSL=true -DCURL_USE_MBEDTLS=true ${AdditionalDefines} ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
+	<AdditionalSystemFramework platform="darwin">Foundation</AdditionalSystemFramework>
+	<AdditionalSystemFramework platform="darwin">SystemConfiguration</AdditionalSystemFramework>
+
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>

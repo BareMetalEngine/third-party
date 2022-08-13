@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="harfbuzz">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/harfbuzz/harfbuzz.git</SourceURL>
+
+	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/zlibstatic.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux,darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libharfbuzz.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>src/*.h</File>
+		<Recursive>true</Recursive>
+	</Artifact>
+
+</Library>

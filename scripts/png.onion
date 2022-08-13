@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="png">
+	
+	<SourceType>URL</SourceType>
+	<SourceURL>https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz/download</SourceURL>
+	<SourceRelativePath>libpng-1.6.37</SourceRelativePath>
+
+	<ConfigCommand>cmake -DPNG_ARM_NEON=off ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Dependency>
+		<Library>zlib</Library>
+		<IncludeVar>ZLIB_INCLUDE_DIR</IncludeVar>
+        <LibraryVar>ZLIB_LIBRARY</LibraryVar>
+	</Dependency>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/zlibstatic.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux,darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libpng16.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>png.h</File>
+	</Artifact>
+
+</Library>

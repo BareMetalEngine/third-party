@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="zstd">
+	
+	<SourceType>GitHub</SourceType>
+	<SourceURL>https://github.com/facebook/zstd.git</SourceURL>
+
+	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>Release/zstdstatic.lib</File>
+	</Artifact>
+
+	<Artifact platform="linux,darwin">
+		<Type>Library</Type>
+		<Location>Build</Location>
+		<Destination>lib</Destination>
+		<File>libzstd.a</File>
+	</Artifact>
+
+	<Artifact>
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include</Destination>
+		<File>lib/zstd.h</File>
+	</Artifact>
+
+</Library>

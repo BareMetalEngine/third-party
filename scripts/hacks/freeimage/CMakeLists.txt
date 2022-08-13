@@ -385,11 +385,10 @@ set(LIB_JXR_SRC
     Source/LibJXR/jxrgluelib/JXRMeta.c
 )
 
-
-file(GLOB LIB_OTHER_SRC 
-    Source/LibPNG/*.c
-    Source/ZLib/*.c
-)
+#file(GLOB LIB_OTHER_SRC
+#    Source/LibPNG/*.c
+#    Source/ZLib/*.c
+#)
 
 file(GLOB LIB_FREEIMAGE_SRC 
     Source/FreeImage/BitmapAccess.cpp

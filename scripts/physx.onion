@@ -2,7 +2,7 @@
 <Library name="physx">
 	
 	<SourceType>GitHub</SourceType>
-	<SourceURL>https://github.com/NVIDIAGameWorks/PhysX.git</SourceURL>
+	<SourceURL>https://github.com/rexdex/fixed_physx41.git</SourceURL>
 
 	<ConfigCommand platform="windows">call ${SourcePath}/physx/generate_projects.bat vc16win64</ConfigCommand>
 	<ConfigCommand platform="linux">${SourcePath}/physx/generate_projects.sh linux</ConfigCommand>

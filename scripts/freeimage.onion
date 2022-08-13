@@ -7,7 +7,19 @@
 
 	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DFREEIMAGE_LIB=true -DSUPPORT_FMT_JPEG=true -DSUPPORT_FMT_OPENEXR=true -DSUPPORT_FMT_WEBP=true -DSUPPORT_FMT_TIFF=true ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>	
-		
+
+    <Dependency>
+        <Library>png</Library>
+        <IncludeVar>PNG_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar>PNG_LIBRARIES</LibraryVar>
+    </Dependency>
+
+	<Dependency>
+		<Library>zlib</Library>
+		<IncludeVar>ZLIB_INCLUDE_DIR</IncludeVar>
+        <LibraryVar>ZLIB_LIBRARY</LibraryVar>
+	</Dependency>
+
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>

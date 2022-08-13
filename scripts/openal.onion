@@ -7,6 +7,11 @@
 	<ConfigCommand>cmake -DLIBTYPE=STATIC -DALSOFT_BACKEND_WINMM=false ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
+    <AdditionalSystemFramework platform="darwin">Foundation</AdditionalSystemFramework>
+    <AdditionalSystemFramework platform="darwin">CoreFoundation</AdditionalSystemFramework>
+    <AdditionalSystemFramework platform="darwin">CoreAudio</AdditionalSystemFramework>
+    <AdditionalSystemFramework platform="darwin">AudioUnit</AdditionalSystemFramework>
+
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>
