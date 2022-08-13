@@ -4,7 +4,8 @@
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/freetype/freetype.git</SourceURL>
 
-	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="windows,darwin">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="linux">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release -DFT_DISABLE_HARFBUZZ=TRUE ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Dependency>
@@ -25,7 +26,7 @@
         <LibraryVar>PNG_LIBRARIES</LibraryVar>
     </Dependency>
 
-    <Dependency>
+    <Dependency platform="windows,darwin">
         <Library>harfbuzz</Library>
         <IncludeVar>HarfBuzz_INCLUDE_DIR</IncludeVar>
         <LibraryVar>HarfBuzz_LIBRARY</LibraryVar>

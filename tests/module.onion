@@ -63,17 +63,17 @@
 	</TestApplication>
 	<TestApplication>
 		<SourceRoot>test_freeimage</SourceRoot>
-		<LibraryDependency>freeimage</LibraryDependency>
-		<LibraryDependency>zlib</LibraryDependency>
+		<LibraryDependency>freeimage</LibraryDependency>		
 		<LibraryDependency>png</LibraryDependency>
+		<LibraryDependency>zlib</LibraryDependency>
 	</TestApplication>
 	<TestApplication>
 		<SourceRoot>test_freetype</SourceRoot>
 		<LibraryDependency>freetype</LibraryDependency>
-		<LibraryDependency>zlib</LibraryDependency>
 		<LibraryDependency>bz2</LibraryDependency>
 		<LibraryDependency>brotli</LibraryDependency>
 		<LibraryDependency>harfbuzz</LibraryDependency>
 		<LibraryDependency>png</LibraryDependency>
+		<LibraryDependency>zlib</LibraryDependency>		
 	</TestApplication>
 </Module>
