@@ -5,7 +5,7 @@
 	<SourceURL>https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz/download</SourceURL>
 	<SourceRelativePath>libpng-1.6.37</SourceRelativePath>
 
-	<ConfigCommand>cmake -DPNG_ARM_NEON=off ${SourcePath}</ConfigCommand>
+	<ConfigCommand>cmake -DPNG_ARM_NEON=off ${AdditionalDefines} ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Dependency>
@@ -18,7 +18,7 @@
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>Release/zlibstatic.lib</File>
+		<File>Release/libpng16_static.lib</File>
 	</Artifact>
 
 	<Artifact platform="linux,darwin">

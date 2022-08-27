@@ -5,7 +5,7 @@
 	<!-- SourceURL>https://github.com/WinMerge/freeimage.git</SourceURL -->
 	<SourceURL>https://github.com/rexdex/fixed_freeimage.git</SourceURL>
 
-	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DFREEIMAGE_LIB=true -DSUPPORT_FMT_JPEG=true -DSUPPORT_FMT_OPENEXR=true -DSUPPORT_FMT_WEBP=true -DSUPPORT_FMT_TIFF=true ${SourcePath}</ConfigCommand>
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DFREEIMAGE_LIB=true -DSUPPORT_FMT_JPEG=true -DSUPPORT_FMT_OPENEXR=true -DSUPPORT_FMT_WEBP=true -DSUPPORT_FMT_TIFF=true ${AdditionalDefines} ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>	
 
     <Dependency>

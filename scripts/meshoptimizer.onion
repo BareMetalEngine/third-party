@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<Library name="harfbuzz">
+<Library name="meshoptimizer">
 	
 	<SourceType>GitHub</SourceType>
-	<SourceURL>https://github.com/harfbuzz/harfbuzz.git</SourceURL>
+	<SourceURL>https://github.com/zeux/meshoptimizer.git</SourceURL>
 
-	<ConfigCommand>cmake ${SourcePath}</ConfigCommand>
+	<ConfigCommand>cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Artifact platform="windows">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>Release/harfbuzz.lib</File>
+		<File>Release/meshoptimizer.lib</File>
 	</Artifact>
 
 	<Artifact platform="linux,darwin">
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>libharfbuzz.a</File>
+		<File>libmeshoptimizer.a</File>
 	</Artifact>
 
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Source</Location>
 		<Destination>include</Destination>
-		<File>src/*.h</File>
-		<Recursive>true</Recursive>
+		<File>src/meshoptimizer.h</File>
 	</Artifact>
 
 </Library>

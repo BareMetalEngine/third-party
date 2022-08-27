@@ -4,14 +4,15 @@
 	<SourceType>GitHub</SourceType>
 	<SourceURL>https://github.com/freetype/freetype.git</SourceURL>
 
-	<ConfigCommand platform="windows,darwin">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release ${SourcePath}</ConfigCommand>
-	<ConfigCommand platform="linux">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release -DFT_DISABLE_HARFBUZZ=TRUE ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="windows,darwin">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release -DFT_DISABLE_HARFBUZZ=TRUE ${AdditionalDefines} ${SourcePath}</ConfigCommand>
+	<ConfigCommand platform="linux">cmake -DBUILD_SHARED_LIBS=false -DCMAKE_BUILD_TYPE=Release -DFT_DISABLE_HARFBUZZ=TRUE ${AdditionalDefines} ${SourcePath}</ConfigCommand>
 	<BuildCommand>cmake --build ${BuildPath} --config Release ${MT}</BuildCommand>
 
 	<Dependency>
 		<Library>brotli</Library>
 		<IncludeVar>BROTLIDEC_INCLUDE_DIRS</IncludeVar>
-        <LibraryVar file="libbrotlidec-static.a">BROTLIDEC_LIBRARIES</LibraryVar>
+        <LibraryVar platform="linux,darwin" file="libbrotlidec-static.a">BROTLIDEC_LIBRARIES</LibraryVar>
+        <LibraryVar platform="windows" file="brotlidec-static.lib">BROTLIDEC_LIBRARIES</LibraryVar>
 	</Dependency>
 
     <Dependency>
@@ -21,9 +22,17 @@
     </Dependency>
 
     <Dependency>
+        <Library>zlib</Library>
+        <IncludeVar>ZLIB_INCLUDE_DIRS</IncludeVar>
+        <LibraryVar>ZLIB_LIBRARY</LibraryVar>
+        <LibraryVar>ZLIB_LIBRARIES</LibraryVar>
+    </Dependency>
+
+    <Dependency>
         <Library>png</Library>
         <IncludeVar>PNG_INCLUDE_DIRS</IncludeVar>
         <LibraryVar>PNG_LIBRARIES</LibraryVar>
+        <LibraryVar>PNG_LIBRARY</LibraryVar>
     </Dependency>
 
     <Dependency platform="windows,darwin">

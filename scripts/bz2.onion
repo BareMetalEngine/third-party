@@ -11,7 +11,7 @@
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>Release/zlibstatic.lib</File>
+		<File>Release/bz2.lib</File>
 	</Artifact>
 
 	<Artifact platform="linux,darwin">

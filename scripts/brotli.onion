@@ -11,7 +11,9 @@
 		<Type>Library</Type>
 		<Location>Build</Location>
 		<Destination>lib</Destination>
-		<File>Release/freetype.lib</File>
+		<File>Release/brotlidec-static.lib</File>
+		<File>Release/brotlienc-static.lib</File>
+		<File>Release/brotlicommon-static.lib</File>
 	</Artifact>
 
 	<Artifact platform="linux,darwin">
@@ -27,7 +29,7 @@
 		<Type>Header</Type>
 		<Location>Source</Location>
 		<Destination>include</Destination>
-		<File>c/*.h</File>
+		<File>c/include/*.h</File>
 		<Recursive>true</Recursive>
 	</Artifact>
 
