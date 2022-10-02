@@ -24,7 +24,7 @@
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Source</Location>
-		<Destination>include</Destination>
+		<Destination>include/mikkt</Destination>
 		<File>mikktspace.h</File>
 	</Artifact>
 

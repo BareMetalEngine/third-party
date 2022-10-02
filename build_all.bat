@@ -22,17 +22,25 @@ IF NOT "%~1" == "" (
 	EXIT /B 0
 )
 
+REM %ONION% library -library=scripts/winpix.onion -upload
+REM %ONION% library -library=scripts/meshoptimizer.onion -upload
+REM %ONION% library -library=scripts/mikkt.onion -upload
 REM %ONION% library -library=scripts/zlib.onion
 REM %ONION% library -library=scripts/lz4.onion
+REM %ONION% library -library=scripts/brotli.onion -upload
+REM %ONION% library -library=scripts/bz2.onion -upload
+REM %ONION% library -library=scripts/harfbuzz.onion -upload
+REM %ONION% library -library=scripts/zstd.onion
+REM %ONION% library -library=scripts/png.onion
 REM %ONION% library -library=scripts/freetype.onion
 REM %ONION% library -library=scripts/freeimage.onion
 REM %ONION% library -library=scripts/squish.onion
-%ONION% library -library=scripts/dxc.onion
+%ONION% library -library=scripts/dxc.onion -upload
 REM %ONION% library -library=scripts/mbedtls.onion
 REM %ONION% library -library=scripts/ofbx.onion
 REM %ONION% library -library=scripts/lua.onion
 REM %ONION% library -library=scripts/gtest.onion
-REM %ONION% library -library=scripts/imgui.onion
+REM %ONION% library -library=scripts/imgui.onion -upload
 REM %ONION% library -library=scripts/embree.onion
 REM %ONION% library -library=scripts/physx.onion
 REM %ONION% library -library=scripts/openal.onion

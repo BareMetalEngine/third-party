@@ -20,6 +20,7 @@
 		<Location>Source</Location>
 		<Destination>bin</Destination>
 		<File>bin/x64/dxcompiler.dll</File>
+		<File>bin/x64/dxil.dll</File>
 	</Artifact>
 
 	<Artifact platform="windows">

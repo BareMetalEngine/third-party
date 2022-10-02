@@ -24,7 +24,7 @@
 	<Artifact>
 		<Type>Header</Type>
 		<Location>Source</Location>
-		<Destination>include</Destination>
+		<Destination>include/meshoptimizer</Destination>
 		<File>src/meshoptimizer.h</File>
 	</Artifact>
 

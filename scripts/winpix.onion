@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Library name="winpix">
+	
+	<!-- just copy the WinPixEvents from the nuget package -->
+
+	<SourceType platform="windows">URL</SourceType>
+	<SourceURL platform="windows">https://globalcdn.nuget.org/packages/winpixeventruntime.1.0.220810001.nupkg</SourceURL>
+	<ConfigCommand platform="windows">echo Nop</ConfigCommand>
+	<BuildCommand platform="windows">echo Nop</BuildCommand>
+
+	<Artifact platform="windows">
+		<Type>Library</Type>
+		<Location>Source</Location>
+		<Destination>lib</Destination>
+		<File>bin/x64/WinPixEventRuntime.lib</File>
+	</Artifact>
+
+	<Artifact platform="windows">
+		<Type>Deploy</Type>
+		<Location>Source</Location>
+		<Destination>bin</Destination>
+		<File>bin/x64/WinPixEventRuntime.dll</File>
+	</Artifact>
+
+	<Artifact platform="windows">
+		<Type>Header</Type>
+		<Location>Source</Location>
+		<Destination>include/</Destination>
+		<File>include/WinPixEventRuntime/pix3.h</File>
+		<File>include/WinPixEventRuntime/pix3_win.h</File>
+		<File>include/WinPixEventRuntime/PIXEvents.h</File>
+		<File>include/WinPixEventRuntime/PIXEventsCommon.h</File>
+	</Artifact>
+
+</Library>
